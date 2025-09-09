@@ -11,16 +11,11 @@
   --fs-xl: 28px;
   --containerPadding: 20px;
   --chartContainerPadding: 10px;
-  --firstColumnWidth: 190px;
-  @media (min-width: 769px) and (max-width: 1440px) {
-    --firstColumnWidth: 105px;
-  }
   @media (max-width: 768px) {
     --fs-l: 18px;
     --fs-xl: 22px;
     --containerPadding: 10px;
     --chartContainerPadding: 7px 5px;
-    --firstColumnWidth: 90px;
   }
   --party-kmt: #517399;
   --party-dpp: #667D45;
@@ -36,8 +31,8 @@ body {
 }
 
 .container {
-  width: calc(var(--graphWidth) - 2 * var(--containerPadding));
-  height: calc(var(--graphWidth) * 5/4 - 2 * var(--containerPadding));
+  /*width: calc(var(--graphWidth) - 2 * var(--containerPadding));*/
+  /*height: calc(var(--graphWidth) * 5/4 - 2 * var(--containerPadding));*/
   background-color: #fff;
   padding: var(--containerPadding);
   display: flex;
@@ -97,7 +92,4 @@ body {
   width: 100%;
   flex: 1 1 auto;
   min-height: 0;
-  @media (max-width: 768px) {
-    overflow: scroll;
-  }
 }

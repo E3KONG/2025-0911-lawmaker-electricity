@@ -1,21 +1,33 @@
 <script>
-	import Header from './lib/Header.svelte';
-	import Footer from './lib/Footer.svelte';
-	import Table from './lib/Table.svelte';
+  import Header from './lib/Header.svelte';
+  import Footer from './lib/Footer.svelte';
+  import Table from './lib/Table.svelte';
   import {membersSpeech} from './assets/data-store.js';
 
-	let title = "2024年第11屆立委上任後，誰討論最多國家能源政策？";
-	let subtitle;
-	let footer = [
-		"註：截至2025年9月初，立法院第3會期公報未完整公布，本表僅統計2020年至2024年第2會期結束",
-		"資料來源：立法院議事公報、報導者觀測站",
-		"資料整理：簡毅慧  ｜  設計：江世民"
-	];
+  let term = 10;
+  const searchParams = new URLSearchParams(window.location.search);
+  const termParam = searchParams.get('term');
+  if (termParam != null && termParam !== '') {
+    const n = Number(termParam);
+    if (!Number.isNaN(n)) term = n;
+  }
+  $: tableStyle = term === 11 ? "eleventh" : "tenth";
+
+  $: title = `2024年第${term}屆立委上任後，誰討論最多國家能源政策？`;
+  let subtitle;
+  let footer = [
+    "註：截至2025年9月初，立法院第3會期公報未完整公布，本表僅統計2020年至2024年第2會期結束",
+    "資料來源：立法院議事公報、報導者觀測站",
+    "資料整理：簡毅慧  ｜  設計：江世民"
+  ];
+
+  $: speech = membersSpeech(term);
 </script>
+
 <div class="container">
   <Header {title} {subtitle}/>
   <div class="chartContainer">
-	  <Table tableData={$membersSpeech} style={"base"}/>
+    <Table tableData={$speech} style={tableStyle}/>
   </div>
   <Footer {footer}/>
 </div>

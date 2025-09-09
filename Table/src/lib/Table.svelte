@@ -1,21 +1,21 @@
 ﻿<script>
-    import { membersIdentityByName } from '../assets/data-store.js';
+    import {membersIdentityByName} from '../assets/data-store.js';
     import Tooltip from './Tooltip.svelte';
 
     export let tableData = [
         {
-            vitae : "dolorem",
-            lectus : "ipsum",
-            quisquam : "quia"
+            vitae: "dolorem",
+            lectus: "ipsum",
+            quisquam: "quia"
         },
         {
-            vitae : "amet",
-            lectus : "consectetur",
-            quisquam : "adipisci"
+            vitae: "amet",
+            lectus: "consectetur",
+            quisquam: "adipisci"
         }
     ];
     export let style;
-    const columns = tableData.length ? Object.keys(tableData[0]): [];
+    const columns = tableData.length ? Object.keys(tableData[0]) : [];
 
     // table column width
     export let firstColumnWidth = 'var(--firstColumnWidth)'; // 可為數字(px)或字串(%, px, rem, ch等)
@@ -25,6 +25,7 @@
         const s = String(v).trim();
         return s.length ? s : null;
     }
+
     $: firstColW = normalizeWidth(firstColumnWidth);
     $: otherColsW = firstColW && columns.length > 1
         ? `calc((100% - ${firstColW}) / ${columns.length - 1})`
@@ -65,7 +66,7 @@
             }
         }
         if (!identities.length) return null;
-        return { identities };
+        return {identities};
     }
 
     // Map of party to text color for cells
@@ -95,10 +96,10 @@
                 : null;
             const party = match && match.時任黨籍 ? match.時任黨籍 : '';
             const color = party && PARTY_COLOR_MAP[party] ? PARTY_COLOR_MAP[party] : '';
-            return { text: name, color, br: idx < lines.length - 1 };
+            return {text: name, color, br: idx < lines.length - 1};
         });
         // If nothing matched or empty, fallback to raw text as a single part (no color)
-        return parts.length ? parts : [{ text: raw, color: '' }];
+        return parts.length ? parts : [{text: raw, color: ''}];
     }
 
     let tooltip = null; // { x, y, identities } or null
@@ -106,22 +107,26 @@
         tooltip = info;
         updatePos(e);
     }
+
     function onMove(e) {
         if (tooltip) updatePos(e);
     }
+
     function onLeave() {
         tooltip = null;
     }
+
     function updatePos(e) {
         const offset = 12;
-        const { clientX, clientY } = e;
-        tooltip = tooltip && { ...tooltip, x: clientX + offset, y: clientY + offset };
+        const {clientX, clientY} = e;
+        tooltip = tooltip && {...tooltip, x: clientX + offset, y: clientY + offset};
     }
 
     // Merging cell based on empty cell
     function isEmptyValue(val) {
         return val == null || String(val).trim() === '';
     }
+
     function getColspan(row, i) {
         const cur = row[columns[i]];
         if (isEmptyValue(cur)) return 1;
@@ -132,6 +137,7 @@
         }
         return 1;
     }
+
     function isSpannedByPrev(row, i) {
         if (i === 0) return false;
         return getColspan(row, i - 1) > 1;
@@ -141,7 +147,7 @@
 <table class={style} style:table-layout={firstColW ? 'fixed' : undefined}>
   <colgroup>
     {#each columns as col, idx}
-      <col style:width={idx === 0 ? firstColW : otherColsW} />
+      <col style:width={idx === 0 ? firstColW : otherColsW}/>
     {/each}
   </colgroup>
   <thead>
@@ -185,30 +191,67 @@
 {/if}
 
 <style>
-  table {
-    /*min-width: 480px;*/
-  }
   table, th, td {
     border-collapse: collapse;
   }
+
   td {
     white-space: pre-line;
   }
-  table.base {
+
+  table {
     border: 1px solid #ccc;
     background-color: #eee;
     width: 100%;
     text-align: center;
     border-collapse: collapse;
   }
-  table.base td, table.base th {
+
+  table td, table th {
     border: 1px solid #bbb;
     padding: 3px 2px;
   }
-  table.base tbody td {
+
+  table tbody td {
     font-size: var(--fs-m);
     color: #505050;
     font-weight: 450;
+  }
+
+  table tbody td:first-child {
+    font-weight: 650;
+  }
+
+  table tr:nth-child(even) {
+    background: #ddd;
+  }
+
+  table thead {
+    background: #333;
+  }
+
+  table thead th {
+    font-size: var(--fs-m);
+    font-weight: 500;
+    color: #FFFFFF;
+    text-align: center;
+    border-left: 1px solid #f1f1f1;
+  }
+
+  table thead th:first-child {
+    border-left: none;
+  }
+
+  table.tenth {
+    --firstColumnWidth: 190px;
+    @media (min-width: 769px) and (max-width: 1440px) {
+      --firstColumnWidth: 180px;
+    }
+    @media (max-width: 768px) {
+      --firstColumnWidth: 170px;
+    }
+  }
+  table.tenth tbody td {
     padding: 16px 0;
     @media (min-width: 769px) and (max-width: 1440px) {
       padding: 8px 5px;
@@ -218,21 +261,7 @@
       padding: 10px 0;
     }
   }
-  table.base tbody td:first-child {
-    font-weight: 650;
-  }
-  table.base tr:nth-child(even) {
-    background: #ddd;
-  }
-  table.base thead {
-    background: #333;
-  }
-  table.base thead th {
-    font-size: var(--fs-m);
-    font-weight: 500;
-    color: #FFFFFF;
-    text-align: center;
-    border-left: 1px solid #f1f1f1;
+  table.tenth thead th {
     padding: 10px 0;
     @media (min-width: 769px) and (max-width: 1440px) {
       padding: 5px 5px;
@@ -242,9 +271,37 @@
       padding: 5px 0;
     }
   }
-  table.base thead th:first-child {
-    border-left: none;
+
+  table.eleventh {
+    --firstColumnWidth: 170px;
+    @media (min-width: 769px) and (max-width: 1440px) {
+      --firstColumnWidth: 125px;
+    }
+    @media (max-width: 768px) {
+      --firstColumnWidth: 95px;
+    }
   }
+  table.eleventh tbody td {
+    padding: 5px 5px;
+    @media (min-width: 769px) and (max-width: 1440px) {
+      padding: 10px 5px;
+    }
+    @media (max-width: 768px) {
+      font-size: var(--fs-s);
+      padding: 10px 5px;
+    }
+  }
+  table.eleventh thead th {
+    padding: 5px 0;
+    @media (min-width: 769px) and (max-width: 1440px) {
+      padding: 5px 5px;
+    }
+    @media (max-width: 768px) {
+      font-size: var(--fs-s);
+      padding: 5px 0;
+    }
+  }
+
   .party-dot {
     width: 8px;
     height: 8px;
