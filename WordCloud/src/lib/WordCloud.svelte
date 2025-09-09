@@ -116,5 +116,6 @@
   }
   text {
     user-select: none;
+    font-weight: 400;
   }
 </style>
