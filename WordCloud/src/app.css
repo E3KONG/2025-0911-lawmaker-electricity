@@ -28,8 +28,8 @@ body {
 }
 
 .container {
-  width: calc(var(--graphWidth) - 2 * var(--containerPadding));
-  aspect-ratio: 4/5;
+  /*width: calc(var(--graphWidth) - 2 * var(--containerPadding));*/
+  /*aspect-ratio: 4/5;*/
   background-color: #fff;
   padding: var(--containerPadding);
   display: flex;
