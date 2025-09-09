@@ -64,7 +64,7 @@ body {
   gap: 5px;
   width: 100%;
 }
-.footer img {
+.footer svg.twreporter-logo {
   width: 28px;
   height: 26px;
 }

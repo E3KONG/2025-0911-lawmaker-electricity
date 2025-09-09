@@ -13,5 +13,10 @@
 			<p>{item}</p>
 		{/each}
 	</div>
-	<img src="The-Reporter_3-Standalone_symbol_bl-RGB.svg" alt="The Reporter">
+  <svg class="twreporter-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110.41 115.4">
+    <defs><style>.cls-1{fill:#2e2e2e;}</style></defs>
+    <g id="logolockup"><polygon points="69.01 29.34 110.41 18.37 110.41 97.15 69.01 86.06 69.01 29.34"/>
+      <polygon class="cls-1" points="0 0 69.01 29.34 69.01 86.06 0 115.4 0 0"/>
+    </g>
+  </svg>
 </div>
