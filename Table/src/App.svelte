@@ -25,7 +25,7 @@
 
     let bodyHeight = $state(window.document.body.clientHeight);
     $effect(() => {
-        parent.postMessage({bodyHeight}, '*');
+        parent.postMessage({ bodyHeight, source: `twreporter-table-${term}` }, '*'); // 跟 iframe id 一樣
     });
 </script>
 

@@ -40,7 +40,7 @@
 
     let bodyHeight = $state(window.document.body.clientHeight);
     $effect(() => {
-        parent.postMessage({bodyHeight}, '*');
+        parent.postMessage({ bodyHeight, source: `twreporter-wordcloud-${type}` }, '*'); // 跟 iframe id 一樣
     });
 </script>
 
