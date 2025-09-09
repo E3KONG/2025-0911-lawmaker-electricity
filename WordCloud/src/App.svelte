@@ -12,7 +12,7 @@
     const searchParams = new URLSearchParams(window.location.search);
     const type = searchParams.get('type');
 
-    $: title = type === "member" ? "民眾黨黃國昌、張啓楷如何討論太陽光電發展？" : "2022年與2024年3月電力治理議題關鍵字差異";
+    let title = $derived(type === "member" ? "民眾黨黃國昌、張啓楷如何討論太陽光電發展？" : "2022年與2024年3月電力治理議題關鍵字差異");
     let subtitle;
     let footer = [
         "註：截至2025年9月初，立法院第3會期公報未完整公布，本表僅統計2020年至2024年第2會期結束",
@@ -37,7 +37,14 @@
     const timeA = type === "member" ? "第10屆" : "2022年3月";
     const timeB = type === "member" ? "第11屆" : "2024年3月";
 
+
+    let bodyHeight = $state(window.document.body.clientHeight);
+    $effect(() => {
+        parent.postMessage({bodyHeight}, '*');
+    });
 </script>
+
+<svelte:body bind:clientHeight={bodyHeight} />
 <div class="container">
   <Header {title} {subtitle}/>
   <div class="chartContainer">
