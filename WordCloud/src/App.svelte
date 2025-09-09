@@ -6,13 +6,15 @@
     import rawData1B from './assets/1B_電力問題_文字雲.json';
     import rawData2A from './assets/2A_油電價格_文字雲.json';
     import rawData2B from './assets/2B_油電價格_文字雲.json';
-    import rawData3A from './assets/3A_黃國昌_文字雲.json';
-    import rawData4A from './assets/3B_張啓楷_文字雲.json';
+    import rawData3A from './assets/3A_民眾黨_電力問題_文字雲.json';
+    import rawData3B from './assets/3B_民眾黨_電力問題_文字雲.json';
+    import rawData4A from './assets/4A_民眾黨_太陽光電發展_文字雲.json';
+    import rawData4B from './assets/4B_民眾黨_太陽光電發展_文字雲.json';
 
     const searchParams = new URLSearchParams(window.location.search);
-    const type = searchParams.get('type');
+    const party = searchParams.get('party');
 
-    let title = $derived(type === "member" ? "民眾黨黃國昌、張啓楷如何討論太陽光電發展？" : "2022年與2024年3月電力治理議題關鍵字差異");
+    let title = $derived(party === "tpp" ? "民眾黨2屆立委如何談電力問題與太陽光電發展？" : "2022年與2024年3月電力治理議題關鍵字差異");
     let subtitle;
     let footer = [
         "註：截至2025年9月初，立法院第3會期公報未完整公布，本表僅統計2020年至2024年第2會期結束",
@@ -24,23 +26,26 @@
         value: Number(d.count)
     }));
 
-    const dataA = type === "member" ? rawData3A : rawData1A;
-    const dataB = type === "member" ? rawData1B : rawData1B;
-    const dataC = type === "member" ? rawData4A : rawData2A;
-    const dataD = type === "member" ? rawData2B : rawData2B;
-    const annotateA = type === "member" ? "黃國昌" : "【 關注303大停電、電網韌性等面向 】";
-    const annotateB = type === "member" ? "【  】" : "【 關注電價調漲、台電虧損 】";
-    const annotateC = type === "member" ? "張啓楷" : "【 關注烏俄戰爭對油電價格的影響 】";
-    const annotateD = type === "member" ? "【  】" : "【 關注電價調漲，對物價及通膨的影響 】";
-    const topicA = type === "member" ? "電力問題" : "電力問題";
-    const topicB = type === "member" ? "太陽光電發展" : "油電價格";
-    const timeA = type === "member" ? "第10屆" : "2022年3月";
-    const timeB = type === "member" ? "第11屆" : "2024年3月";
-
+    const dataA = party === "tpp" ? rawData3A : rawData1A;
+    const dataB = party === "tpp" ? rawData3B : rawData1B;
+    const dataC = party === "tpp" ? rawData4A : rawData2A;
+    const dataD = party === "tpp" ? rawData4B : rawData2B;
+    const annotateA = party === "tpp" ? "【 電網、儲能、智慧、損失、用電大戶 】" : "【 關注303大停電、電網韌性等面向 】";
+    const annotateB = party === "tpp" ? "【 農業、儲能、減碳、碳費、轉型 】" : "【 關注電價調漲、台電虧損 】";
+    const annotateC = party === "tpp" ? "【 弊案、日本九州、環評、防爆、電價 】" : "【 關注烏俄戰爭對油電價格的影響 】";
+    const annotateD = party === "tpp" ? "【 電價、聯合再生、漏洞、弊案、台南 】" : "【 關注電價調漲，對物價及通膨的影響 】";
+    const topicA = party === "tpp" ? "電力問題" : "電力問題";
+    const topicB = party === "tpp" ? "太陽光電發展" : "油電價格";
+    const timeA = party === "tpp" ? "第10屆" : "2022年3月";
+    const timeB = party === "tpp" ? "第11屆" : "2024年3月";
+    const colorA = party === "tpp" ? "#b58f5b" : "#b58f5b";
+    const colorB = party === "tpp" ? "#A27DB5" : "#748B80";
+    const colorAhue = party === "tpp" ? 35 : 35;
+    const colorBhue = party === "tpp" ? 280 : 150;
 
     let bodyHeight = $state(window.document.body.clientHeight);
     $effect(() => {
-        parent.postMessage({ bodyHeight, source: `twreporter-wordcloud-${type}` }, '*'); // 跟 iframe id 一樣
+        parent.postMessage({ bodyHeight, source: `twreporter-wordcloud-${party}` }, '*'); // 跟 iframe id 一樣
     });
 </script>
 
@@ -59,24 +64,24 @@
         </thead>
         <tbody>
         <tr>
-          <th class="groupTopic" style="background-color:#b58f5b;">{topicA}</th>
+          <th class="groupTopic" style="background-color:{colorA};">{topicA}</th>
           <td>
-            <WordCloud words={formatWords(dataA)} colH={35} colS={65}/>
+            <WordCloud words={formatWords(dataA)} colH={colorAhue} colS={65}/>
             <p>{annotateA}</p>
           </td>
           <td>
-            <WordCloud words={formatWords(dataB)} colH={35} colS={65}/>
+            <WordCloud words={formatWords(dataB)} colH={colorAhue} colS={65}/>
             <p>{annotateB}</p>
           </td>
         </tr>
         <tr>
-          <th rowspan="4" class="groupTopic" style="background-color:#748B80;">{topicB}</th>
+          <th rowspan="4" class="groupTopic" style="background-color:{colorB};">{topicB}</th>
           <td>
-            <WordCloud words={formatWords(dataC)} colH={150} colS={15}/>
+            <WordCloud words={formatWords(dataC)} colH={colorBhue} colS={15}/>
             <p>{annotateC}</p>
           </td>
           <td>
-            <WordCloud words={formatWords(dataD)} colH={150} colS={15}/>
+            <WordCloud words={formatWords(dataD)} colH={colorBhue} colS={15}/>
             <p>{annotateD}</p>
           </td>
         </tr>
@@ -87,12 +92,12 @@
       <table class="cloudsContainer">
         <thead>
         <tr>
-          <th rowspan="4" class="groupTopic" style="background-color:#b58f5b;">{topicA}</th>
+          <th rowspan="4" class="groupTopic" style="background-color:{colorA};">{topicA}</th>
           <th>{timeA}</th>
         </tr>
         <tr>
           <th>
-            <WordCloud words={formatWords(dataA)} height="200" width="800" colH={35} colS={65}/>
+            <WordCloud words={formatWords(dataA)} height="200" width="800" colH={colorAhue} colS={65}/>
             <p>{annotateA}</p>
           </th>
         </tr>
@@ -101,19 +106,19 @@
         </tr>
         <tr>
           <th>
-            <WordCloud words={formatWords(dataB)} height="200" width="800" colH={35} colS={65}/>
+            <WordCloud words={formatWords(dataB)} height="200" width="800" colH={colorAhue} colS={65}/>
             <p>{annotateB}</p>
           </th>
         </tr>
         </thead>
         <tbody>
         <tr>
-          <td rowspan="4" class="groupTopic" style="background-color:#748B80;">{topicB}</td>
+          <td rowspan="4" class="groupTopic" style="background-color:{colorB};">{topicB}</td>
           <td>{timeA}</td>
         </tr>
         <tr>
           <td>
-            <WordCloud words={formatWords(dataC)} height="200" width="800" colH={150} colS={15}/>
+            <WordCloud words={formatWords(dataC)} height="200" width="800" colH={colorBhue} colS={15}/>
             <p>{annotateC}</p>
           </td>
         </tr>
@@ -122,7 +127,7 @@
         </tr>
         <tr>
           <td>
-            <WordCloud words={formatWords(dataD)} height="200" width="800" colH={150} colS={15}/>
+            <WordCloud words={formatWords(dataD)} height="200" width="800" colH={colorBhue} colS={15}/>
             <p>{annotateD}</p>
           </td>
         </tr>

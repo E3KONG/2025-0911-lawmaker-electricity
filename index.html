@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body style="width: 730px; background-color: #f1f1f1;">
+<div>
+  <iframe src="http://localhost:5173/twreporter/ddd/2025-0911-lawmaker-electricity/table/index.html?term=10"
+          style="border: none; width: 100%; overflow: clip;" id="twreporter-table-10"></iframe>
+  <script>
+      const tableId = 'twreporter-table-10';
+      const tableIframe = document.getElementById(tableId);
+      tableIframe.style.height = '500px';
+      window.addEventListener("message", (e) => {
+
+          if (e.data.source !== tableId) return;
+
+          tableIframe.style.height = e.data.bodyHeight + 'px';
+      });
+  </script>
+</div>
+xxx
+<div>
+  <iframe src="http://localhost:5173/twreporter/ddd/2025-0911-lawmaker-electricity/table/index.html?term=11"
+          style="border: none; width: 100%; overflow: clip;" id="twreporter-table-11"></iframe>
+  <script>
+      const tableId = 'twreporter-table-11';
+      const tableIframe = document.getElementById(tableId);
+      tableIframe.style.height = '500px';
+      window.addEventListener("message", (e) => {
+
+          if (e.data.source !== tableId) return;
+
+          tableIframe.style.height = e.data.bodyHeight + 'px';
+      });
+  </script>
+</div>
+xxx<br>
+xxx
+<div>
+  <iframe src="http://localhost:5174/twreporter/ddd/2025-0911-lawmaker-electricity/word-cloud/index.html?party=all"
+          style="border: none; width: 100%; overflow: clip;" id="twreporter-wordcloud-all"></iframe>
+  <script>
+      const wordCloudId = 'twreporter-wordcloud-all';
+      const wordCloudIframe = document.getElementById(wordCloudId);
+      wordCloudIframe.style.height = '500px';
+      window.addEventListener("message", (e) => {
+
+          if (e.data.source !== wordCloudId) return;
+
+          wordCloudIframe.style.height = e.data.bodyHeight + 'px';
+      });
+  </script>
+</div>
+xxx
+<div>
+  <iframe src="http://localhost:5174/twreporter/ddd/2025-0911-lawmaker-electricity/word-cloud/index.html?party=tpp"
+          style="border: none; width: 100%; overflow: clip;" id="twreporter-wordcloud-tpp"></iframe>
+  <script>
+      const wordCloudId = 'twreporter-wordcloud-tpp';
+      const wordCloudIframe = document.getElementById(wordCloudId);
+      wordCloudIframe.style.height = '500px';
+      window.addEventListener("message", (e) => {
+
+          if (e.data.source !== wordCloudId) return;
+
+          wordCloudIframe.style.height = e.data.bodyHeight + 'px';
+      });
+  </script>
+</div>
+</body>
+</html>
