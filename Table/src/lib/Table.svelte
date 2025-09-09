@@ -273,7 +273,7 @@
   }
 
   table.eleventh {
-    --firstColumnWidth: 170px;
+    --firstColumnWidth: 190px;
     @media (min-width: 769px) and (max-width: 1440px) {
       --firstColumnWidth: 125px;
     }
