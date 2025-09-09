@@ -32,7 +32,7 @@
     const dataD = party === "tpp" ? rawData4B : rawData2B;
     const annotateA = party === "tpp" ? "【 電網、儲能、智慧、損失、用電大戶 】" : "【 關注303大停電、電網韌性等面向 】";
     const annotateB = party === "tpp" ? "【 農業、儲能、減碳、碳費、轉型 】" : "【 關注電價調漲、台電虧損 】";
-    const annotateC = party === "tpp" ? "【 弊案、日本九州、環評、防爆、電價 】" : "【 關注烏俄戰爭對油電價格的影響 】";
+    const annotateC = party === "tpp" ? "【 弊案、日本九州、環評、防爆、電價 】" : "【 關注俄烏戰爭對油電價格的影響 】";
     const annotateD = party === "tpp" ? "【 電價、聯合再生、漏洞、弊案、台南 】" : "【 關注電價調漲，對物價及通膨的影響 】";
     const topicA = party === "tpp" ? "電力問題" : "電力問題";
     const topicB = party === "tpp" ? "太陽光電發展" : "油電價格";

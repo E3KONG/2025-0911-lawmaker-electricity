@@ -13,7 +13,7 @@
     }
     let tableStyle = $derived(term === 11 ? "eleventh" : "tenth");
 
-    let title = $derived(`2024年第${term}屆立委上任後，誰討論最多國家能源政策？`);
+    let title = $derived(term === 11 ? `2024年第11屆立委上任後，誰討論最多國家能源政策？` : `2020年第10屆立委上任後，誰討論最多國家能源政策？`);
     let subtitle;
     let footer = [
         "註：截至2025年9月初，立法院第3會期公報未完整公布，本表僅統計2020年至2024年第2會期結束",
