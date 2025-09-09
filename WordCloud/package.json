@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "deploy": "npm run build && cd dist && gcloud storage cp -r * gs://projects.twreporter.org/twreporter/ddd/2025-0911-lawmaker-electricity/wordCloud/",
+    "deploy": "npm run build && cd dist && gcloud storage cp -r * gs://projects.twreporter.org/twreporter/ddd/2025-0911-lawmaker-electricity/word-cloud/",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig tsconfig.app.json && tsc -p tsconfig.node.json"
   },
