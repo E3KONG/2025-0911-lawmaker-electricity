@@ -3,8 +3,8 @@
 install
 `npm install`
 
-dev
+dev environment
 `npm run dev`
 
-build to GCP
-`npm run build`
+build and deploy to GCP
+`npm run deploy`
