@@ -104,7 +104,7 @@
         </tr>
         <tr>
           <th>
-            <WordCloud words={formatWords(dataA)} height="200" width="800" colH={colorAhue} colS={65}/>
+            <WordCloud words={formatWords(dataA)} height="240" width="800" colH={colorAhue} colS={65}/>
             <p>{annotateA}</p>
           </th>
         </tr>
@@ -113,7 +113,7 @@
         </tr>
         <tr>
           <th>
-            <WordCloud words={formatWords(dataB)} height="200" width="800" colH={colorAhue} colS={65}/>
+            <WordCloud words={formatWords(dataB)} height="240" width="800" colH={colorAhue} colS={65}/>
             <p>{annotateB}</p>
           </th>
         </tr>
@@ -125,7 +125,7 @@
         </tr>
         <tr>
           <td>
-            <WordCloud words={formatWords(dataC)} height="200" width="800" colH={colorBhue} colS={15}/>
+            <WordCloud words={formatWords(dataC)} height="240" width="800" colH={colorBhue} colS={15}/>
             <p>{annotateC}</p>
           </td>
         </tr>
@@ -134,7 +134,7 @@
         </tr>
         <tr>
           <td>
-            <WordCloud words={formatWords(dataD)} height="200" width="800" colH={colorBhue} colS={15}/>
+            <WordCloud words={formatWords(dataD)} height="240" width="800" colH={colorBhue} colS={15}/>
             <p>{annotateD}</p>
           </td>
         </tr>
