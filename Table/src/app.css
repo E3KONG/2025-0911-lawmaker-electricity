@@ -11,7 +11,7 @@
   --fs-xl: 28px;
   --containerPadding: 20px;
   --chartContainerPadding: 10px;
-  @media (max-width: 768px) {
+  @media (max-width: 480px) {
     --fs-l: 18px;
     --fs-xl: 22px;
     --containerPadding: 10px;

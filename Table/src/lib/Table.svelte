@@ -244,29 +244,29 @@
 
   table.tenth {
     --firstColumnWidth: 190px;
-    @media (min-width: 769px) and (max-width: 1440px) {
+    @media (min-width: 481px) and (max-width: 580px) {
       --firstColumnWidth: 180px;
     }
-    @media (max-width: 768px) {
+    @media (max-width: 480px) {
       --firstColumnWidth: 170px;
     }
   }
   table.tenth tbody td {
     padding: 16px 0;
-    @media (min-width: 769px) and (max-width: 1440px) {
+    @media (min-width: 481px) and (max-width: 580px) {
       padding: 8px 5px;
     }
-    @media (max-width: 768px) {
+    @media (max-width: 480px) {
       font-size: var(--fs-s);
       padding: 10px 0;
     }
   }
   table.tenth thead th {
     padding: 10px 0;
-    @media (min-width: 769px) and (max-width: 1440px) {
+    @media (min-width: 481px) and (max-width: 580px) {
       padding: 5px 5px;
     }
-    @media (max-width: 768px) {
+    @media (max-width: 480px) {
       font-size: var(--fs-s);
       padding: 5px 0;
     }
@@ -274,29 +274,29 @@
 
   table.eleventh {
     --firstColumnWidth: 190px;
-    @media (min-width: 769px) and (max-width: 1440px) {
+    @media (min-width: 481px) and (max-width: 580px) {
       --firstColumnWidth: 125px;
     }
-    @media (max-width: 768px) {
+    @media (max-width: 480px) {
       --firstColumnWidth: 95px;
     }
   }
   table.eleventh tbody td {
     padding: 5px 5px;
-    @media (min-width: 769px) and (max-width: 1440px) {
+    @media (min-width: 481px) and (max-width: 580px) {
       padding: 10px 5px;
     }
-    @media (max-width: 768px) {
+    @media (max-width: 480px) {
       font-size: var(--fs-s);
       padding: 10px 5px;
     }
   }
   table.eleventh thead th {
     padding: 5px 0;
-    @media (min-width: 769px) and (max-width: 1440px) {
+    @media (min-width: 481px) and (max-width: 580px) {
       padding: 5px 5px;
     }
-    @media (max-width: 768px) {
+    @media (max-width: 480px) {
       font-size: var(--fs-s);
       padding: 5px 0;
     }

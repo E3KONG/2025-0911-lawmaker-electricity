@@ -12,10 +12,10 @@
   --containerPadding: 20px;
   --chartContainerPadding: 10px;
   --firstColumnWidth: 190px;
-  @media (min-width: 769px) and (max-width: 1440px) {
+  @media (min-width: 481px) and (max-width: 580px) {
     --firstColumnWidth: 105px;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 480px) {
     --fs-l: 18px;
     --fs-xl: 22px;
     --containerPadding: 10px;
@@ -110,7 +110,7 @@ th, td {
   font-weight: 700;
   color: #333;
   font-size: var(--fs-m);
-  @media (max-width: 768px) {
+  @media (max-width: 480px) {
     font-weight: 600;
     color: #333;
     font-size: var(--fs-s);
@@ -122,7 +122,7 @@ th p, td p {
   color: #888;
   margin-top: 0;
   font-size: var(--fs-s);
-  @media (max-width: 768px) {
+  @media (max-width: 480px) {
     font-size: var(--fs-xs);
     margin-top: 8px;
   }
@@ -137,13 +137,13 @@ th p, td p {
 
 .desktop-only {
   display: block;
-  @media (max-width: 768px) {
+  @media (max-width: 480px) {
     display: none;
   }
 }
 .mobile-only {
   display: none;
-  @media (max-width: 768px) {
+  @media (max-width: 480px) {
     display: block;
   }
 }
