@@ -252,7 +252,7 @@
     }
   }
   table.tenth tbody td {
-    padding: 16px 0;
+    padding: 13.2px 0;
     @media (min-width: 481px) and (max-width: 580px) {
       padding: 8px 5px;
     }

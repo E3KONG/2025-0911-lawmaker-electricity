@@ -14,7 +14,7 @@
     const searchParams = new URLSearchParams(window.location.search);
     const party = searchParams.get('party');
 
-    let title = $derived(party === "tpp" ? "民眾黨兩屆立委如何談電力問題與太陽光電發展？" : "2022年與2024年3月電力治理議題關鍵字差異");
+    let title = $derived(party === "tpp" ? "民眾黨近兩屆立委如何談電力問題與太陽光電發展？" : "2022年與2024年3月電力治理議題關鍵字差異");
     let subtitle;
     let footer = $derived(party === "tpp" ? [
         "註1：截至2025年9月初，立法院第3會期公報未完整公布，本表僅統計2020年至2024年第2會期結束",
