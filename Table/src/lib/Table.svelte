@@ -245,10 +245,10 @@
   table.tenth {
     --firstColumnWidth: 190px;
     @media (min-width: 481px) and (max-width: 580px) {
-      --firstColumnWidth: 180px;
+      --firstColumnWidth: 125px;
     }
     @media (max-width: 480px) {
-      --firstColumnWidth: 170px;
+      --firstColumnWidth: 95px;
     }
   }
   table.tenth tbody td {
