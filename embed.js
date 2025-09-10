@@ -7,8 +7,6 @@ window.addEventListener('message', (event) => {
 
   const sourceId = event.data.source
 
-  console.log(event.data)
-
   const iframe = document.getElementById(sourceId)
 
   if (!iframe || !event.data.bodyHeight) return
