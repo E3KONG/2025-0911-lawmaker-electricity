@@ -282,9 +282,9 @@
     }
   }
   table.eleventh tbody td {
-    padding: 5px 5px;
+    padding: 3.8px 5px;
     @media (min-width: 481px) and (max-width: 580px) {
-      padding: 10px 5px;
+      padding: 10px 2px;
     }
     @media (max-width: 480px) {
       font-size: var(--fs-s);
@@ -292,7 +292,7 @@
     }
   }
   table.eleventh thead th {
-    padding: 5px 0;
+    padding: 3px 0;
     @media (min-width: 481px) and (max-width: 580px) {
       padding: 5px 5px;
     }

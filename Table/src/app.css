@@ -31,8 +31,6 @@ body {
 }
 
 .container {
-  /*width: calc(var(--graphWidth) - 2 * var(--containerPadding));*/
-  /*height: calc(var(--graphWidth) * 5/4 - 2 * var(--containerPadding));*/
   background-color: #fff;
   padding: var(--containerPadding);
   display: flex;
@@ -93,3 +91,9 @@ body {
   flex: 1 1 auto;
   min-height: 0;
 }
+
+/* export style */
+/*.container {*/
+/*  width: calc(var(--graphWidth) - 2 * var(--containerPadding));*/
+/*  height: calc(var(--graphWidth) * 5/4 - 2 * var(--containerPadding));*/
+/*}*/

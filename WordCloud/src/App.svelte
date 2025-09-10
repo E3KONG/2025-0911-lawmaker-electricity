@@ -14,13 +14,18 @@
     const searchParams = new URLSearchParams(window.location.search);
     const party = searchParams.get('party');
 
-    let title = $derived(party === "tpp" ? "民眾黨2屆立委如何談電力問題與太陽光電發展？" : "2022年與2024年3月電力治理議題關鍵字差異");
+    let title = $derived(party === "tpp" ? "民眾黨兩屆立委如何談電力問題與太陽光電發展？" : "2022年與2024年3月電力治理議題關鍵字差異");
     let subtitle;
-    let footer = [
+    let footer = $derived(party === "tpp" ? [
+        "註1：截至2025年9月初，立法院第3會期公報未完整公布，本表僅統計2020年至2024年第2會期結束",
+        "註2：文字雲下方黑字為各屆議題特色詞彙，方法論詳見報導內文",
+        "資料來源：立法院議事公報、報導者觀測站",
+        "資料整理：簡毅慧  ｜  設計：江世民"
+    ] : [
         "註：截至2025年9月初，立法院第3會期公報未完整公布，本表僅統計2020年至2024年第2會期結束",
         "資料來源：立法院議事公報、報導者觀測站",
         "資料整理：簡毅慧  ｜  設計：江世民"
-    ];
+    ]);
     const formatWords = (data) => data.map(d => ({
         text: d.token,
         value: Number(d.count)
@@ -42,6 +47,8 @@
     const colorB = party === "tpp" ? "#A27DB5" : "#748B80";
     const colorAhue = party === "tpp" ? 35 : 35;
     const colorBhue = party === "tpp" ? 280 : 150;
+    const wcHeight = party === "tpp" ? 288 : 305;
+    const wcWidth = party === "tpp" ? 320 : 320;
 
     let bodyHeight = $state(window.document.body.clientHeight);
     $effect(() => {
@@ -66,22 +73,22 @@
         <tr>
           <th class="groupTopic" style="background-color:{colorA};">{topicA}</th>
           <td>
-            <WordCloud words={formatWords(dataA)} colH={colorAhue} colS={65}/>
+            <WordCloud words={formatWords(dataA)} height={wcHeight} width={wcWidth} colH={colorAhue} colS={65}/>
             <p>{annotateA}</p>
           </td>
           <td>
-            <WordCloud words={formatWords(dataB)} colH={colorAhue} colS={65}/>
+            <WordCloud words={formatWords(dataB)} height={wcHeight} width={wcWidth} colH={colorAhue} colS={65}/>
             <p>{annotateB}</p>
           </td>
         </tr>
         <tr>
           <th rowspan="4" class="groupTopic" style="background-color:{colorB};">{topicB}</th>
           <td>
-            <WordCloud words={formatWords(dataC)} colH={colorBhue} colS={15}/>
+            <WordCloud words={formatWords(dataC)} height={wcHeight} width={wcWidth} colH={colorBhue} colS={15}/>
             <p>{annotateC}</p>
           </td>
           <td>
-            <WordCloud words={formatWords(dataD)} colH={colorBhue} colS={15}/>
+            <WordCloud words={formatWords(dataD)} height={wcHeight} width={wcWidth} colH={colorBhue} colS={15}/>
             <p>{annotateD}</p>
           </td>
         </tr>
