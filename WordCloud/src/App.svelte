@@ -130,7 +130,7 @@
           </td>
         </tr>
         <tr>
-          <td>2{timeB}</td>
+          <td>{timeB}</td>
         </tr>
         <tr>
           <td>
